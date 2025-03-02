@@ -1,0 +1,551 @@
+/**
+ * Pixel Playgrounds Nexus - Advanced Visualization System Styles
+ * Futuristic cyberpunk styling for the Nexus enhancement
+ */
+
+/* Nexus Control Panel */
+.nexus-control-panel {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    width: 300px;
+    background: rgba(0, 0, 0, 0.85);
+    border: 2px solid var(--neon-cyan);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+    border-radius: 10px;
+    z-index: 900;
+    overflow: hidden;
+    transform: translateX(320px);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nexus-control-panel.active {
+    transform: translateX(0);
+}
+
+.nexus-panel-header {
+    background: linear-gradient(90deg, rgba(0, 255, 255, 0.1) 0%, rgba(0, 255, 255, 0.3) 100%);
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--neon-cyan);
+}
+
+.nexus-panel-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 5px var(--neon-cyan);
+}
+
+.nexus-panel-toggle {
+    background: none;
+    border: none;
+    color: var(--neon-cyan);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    transition: all 0.3s ease;
+}
+
+.nexus-panel-toggle:hover {
+    color: var(--neon-green);
+    text-shadow: 0 0 5px var(--neon-green);
+}
+
+.nexus-panel-content {
+    padding: 15px;
+}
+
+.nexus-control-group {
+    margin-bottom: 20px;
+}
+
+.nexus-control-group h4 {
+    color: var(--neon-green);
+    font-size: 1rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Nexus Recommendation Panel */
+.nexus-recommendation-panel {
+    position: fixed;
+    bottom: 20px;
+    left: calc(var(--sidebar-width) + 20px);
+    width: 350px;
+    background: rgba(0, 0, 0, 0.85);
+    border: 2px solid var(--neon-magenta);
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.4);
+    border-radius: 10px;
+    z-index: 900;
+    overflow: hidden;
+    transform: translateY(100%);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nexus-recommendation-panel.active {
+    transform: translateY(0);
+}
+
+.nexus-recommendation-panel .nexus-panel-header {
+    background: linear-gradient(90deg, rgba(255, 0, 255, 0.1) 0%, rgba(255, 0, 255, 0.3) 100%);
+    border-bottom: 1px solid var(--neon-magenta);
+}
+
+.nexus-recommendation-panel .nexus-panel-header h3 {
+    color: var(--neon-magenta);
+    text-shadow: 0 0 5px var(--neon-magenta);
+}
+
+.nexus-recommendation-panel .nexus-panel-toggle {
+    color: var(--neon-magenta);
+}
+
+.nexus-recommendation-panel .nexus-panel-toggle:hover {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 5px var(--neon-cyan);
+}
+
+.nexus-recommendation-container {
+    max-height: 250px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+
+.nexus-recommendation {
+    background: rgba(255, 0, 255, 0.1);
+    border: 1px solid var(--neon-magenta);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.nexus-recommendation:hover {
+    background: rgba(255, 0, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 0, 255, 0.3);
+}
+
+.nexus-recommendation-title {
+    font-size: 1rem;
+    color: var(--neon-magenta);
+    margin-bottom: 5px;
+}
+
+.nexus-recommendation-description {
+    font-size: 0.9rem;
+    color: var(--light-text);
+    margin-bottom: 8px;
+}
+
+.nexus-recommendation-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Nexus Metrics Display */
+.nexus-metrics-display {
+    position: fixed;
+    top: 100px;
+    left: calc(var(--sidebar-width) + 20px);
+    width: 250px;
+    background: rgba(0, 0, 0, 0.85);
+    border: 2px solid var(--neon-green);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
+    border-radius: 10px;
+    z-index: 900;
+    overflow: hidden;
+    transform: translateX(-270px);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nexus-metrics-display.active {
+    transform: translateX(0);
+}
+
+.nexus-metrics-display .nexus-panel-header {
+    background: linear-gradient(90deg, rgba(0, 255, 0, 0.1) 0%, rgba(0, 255, 0, 0.3) 100%);
+    border-bottom: 1px solid var(--neon-green);
+}
+
+.nexus-metrics-display .nexus-panel-header h3 {
+    color: var(--neon-green);
+    text-shadow: 0 0 5px var(--neon-green);
+}
+
+.nexus-metrics-display .nexus-panel-toggle {
+    color: var(--neon-green);
+}
+
+.nexus-metrics-display .nexus-panel-toggle:hover {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 5px var(--neon-cyan);
+}
+
+.nexus-metric {
+    margin-bottom: 15px;
+}
+
+.nexus-metric-label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--light-text);
+    margin-bottom: 5px;
+}
+
+.nexus-metric-value {
+    font-size: 1.2rem;
+    color: var(--neon-green);
+    font-family: 'Orbitron', sans-serif;
+}
+
+.nexus-progress-bar {
+    height: 8px;
+    background: rgba(0, 255, 0, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.nexus-progress-fill {
+    height: 100%;
+    background: var(--neon-green);
+    box-shadow: 0 0 10px var(--neon-green);
+    transition: width 0.5s ease;
+}
+
+/* Nexus Modal */
+.nexus-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.nexus-modal-content {
+    background: var(--dark-accent);
+    border: 2px solid var(--neon-cyan);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 600px;
+    width: 90%;
+    animation: scaleIn 0.3s ease;
+}
+
+.nexus-modal-content h2 {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 10px var(--neon-cyan);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.nexus-modal-content p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.nexus-modal-content ul {
+    margin: 0 0 20px 20px;
+}
+
+.nexus-modal-content li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.nexus-modal-content li:before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--neon-cyan);
+}
+
+.nexus-modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+/* Scanning Overlay */
+.nexus-scanning-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+    transition: opacity 0.5s ease;
+}
+
+.nexus-scanning-content {
+    background: var(--dark-accent);
+    border: 2px solid var(--neon-green);
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+}
+
+.nexus-scanning-content h2 {
+    color: var(--neon-green);
+    text-shadow: 0 0 10px var(--neon-green);
+    margin-bottom: 15px;
+}
+
+.nexus-scanning-progress {
+    margin: 25px 0;
+}
+
+.nexus-scanning-percentage {
+    font-size: 1.2rem;
+    color: var(--neon-green);
+    margin-top: 10px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.nexus-scanning-visualization {
+    height: 200px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--neon-green);
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.nexus-scanning-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(0, 255, 0, 0.2) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 0, 0.2) 1px, transparent 1px);
+    background-size: 20px 20px;
+    animation: scanningGrid 2s linear infinite;
+}
+
+@keyframes scanningGrid {
+    0% { transform: translateY(0); opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { transform: translateY(20px); opacity: 0.5; }
+}
+
+/* Spatial Visualization Overlay */
+.spatial-visualization-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 800;
+}
+
+/* Smart Placement UI */
+.smart-placement-ui {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.placement-guide {
+    position: absolute;
+    border: 2px dashed var(--neon-cyan);
+    border-radius: 5px;
+    background: rgba(0, 255, 255, 0.1);
+    animation: pulseBorder 2s infinite;
+}
+
+.placement-label {
+    position: absolute;
+    background: var(--dark-accent);
+    color: var(--neon-cyan);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.placement-confidence {
+    display: inline-block;
+    width: 40px;
+    height: 4px;
+    background: rgba(0, 255, 255, 0.3);
+    border-radius: 2px;
+    margin-left: 5px;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.placement-confidence-fill {
+    height: 100%;
+    background: var(--neon-cyan);
+    width: 0%;
+}
+
+/* Feature Tour */
+.feature-tour-highlight {
+    position: absolute;
+    border: 2px solid var(--neon-magenta);
+    border-radius: 5px;
+    box-shadow: 0 0 0 5000px rgba(0, 0, 0, 0.8), 0 0 20px var(--neon-magenta);
+    z-index: 1001;
+    pointer-events: none;
+}
+
+.feature-tour-tooltip {
+    position: absolute;
+    background: var(--dark-accent);
+    border: 2px solid var(--neon-magenta);
+    box-shadow: 0 0 15px var(--neon-magenta);
+    border-radius: 10px;
+    padding: 15px;
+    max-width: 300px;
+    z-index: 1002;
+}
+
+.feature-tour-tooltip h3 {
+    color: var(--neon-magenta);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.feature-tour-tooltip p {
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.feature-tour-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Special Offer Modal */
+.special-offer-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.special-offer-content {
+    background: var(--dark-accent);
+    border: 2px solid var(--neon-magenta);
+    box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.special-offer-badge {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: var(--neon-green);
+    color: var(--dark-bg);
+    font-weight: bold;
+    padding: 25px 20px 5px 20px;
+    transform: rotate(45deg);
+    box-shadow: 0 0 10px var(--neon-green);
+}
+
+.special-offer-content h2 {
+    color: var(--neon-magenta);
+    text-shadow: 0 0 10px var(--neon-magenta);
+    margin-bottom: 15px;
+}
+
+.special-offer-price {
+    font-size: 2.5rem;
+    color: var(--neon-green);
+    text-shadow: 0 0 10px var(--neon-green);
+    margin: 20px 0;
+    font-family: 'Audiowide', cursive;
+}
+
+.special-offer-timer {
+    background: rgba(255, 0, 255, 0.1);
+    border: 1px solid var(--neon-magenta);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 20px 0;
+    font-family: 'Orbitron', sans-serif;
+    color: var(--neon-magenta);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes pulseBorder {
+    0% { border-color: rgba(0, 255, 255, 0.3); }
+    50% { border-color: rgba(0, 255, 255, 1); }
+    100% { border-color: rgba(0, 255, 255, 0.3); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .nexus-control-panel,
+    .nexus-recommendation-panel,
+    .nexus-metrics-display {
+        width: 90%;
+        max-width: 350px;
+    }
+    
+    .nexus-control-panel {
+        right: 5%;
+    }
+    
+    .nexus-recommendation-panel {
+        left: 5%;
+    }
+    
+    .nexus-metrics-display {
+        left: 5%;
+        top: 170px;
+    }
+} 

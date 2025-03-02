@@ -1,0 +1,394 @@
+/**
+ * Pixel Playgrounds AR Visualizer - Subscription Styles
+ * Cyberpunk-themed styling for the subscription system
+ */
+
+/* Subscription Button in Sidebar */
+.subscription-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    margin: 1rem auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--neon-green);
+    position: relative;
+}
+
+.subscription-button svg {
+    margin-right: 0.5rem;
+}
+
+.subscription-button:hover {
+    color: var(--neon-cyan);
+    transform: scale(1.05);
+}
+
+.subscription-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.subscription-label.active {
+    color: var(--neon-magenta);
+    text-shadow: 0 0 5px var(--neon-magenta);
+}
+
+/* Subscription Modal */
+.subscription-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1100;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.subscription-modal-content {
+    background: var(--dark-accent);
+    border: 2px solid var(--neon-green);
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+    border-radius: 10px;
+    width: 90%;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: scaleIn 0.3s ease;
+}
+
+.subscription-modal-header {
+    background: linear-gradient(90deg, rgba(0, 255, 0, 0.1) 0%, rgba(0, 255, 0, 0.3) 100%);
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--neon-green);
+}
+
+.subscription-modal-header h2 {
+    margin: 0;
+    color: var(--neon-green);
+    text-shadow: 0 0 10px var(--neon-green);
+    font-size: 1.8rem;
+}
+
+.subscription-close-button {
+    background: none;
+    border: none;
+    color: var(--neon-green);
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.subscription-close-button:hover {
+    color: var(--neon-cyan);
+    transform: scale(1.1);
+}
+
+.subscription-modal-body {
+    padding: 1.5rem;
+}
+
+.subscription-modal-footer {
+    padding: 1.5rem;
+    border-top: 1px solid var(--neon-green);
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+/* Subscription Plans */
+.subscription-plans {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.subscription-plan {
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--neon-cyan);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.subscription-plan:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
+}
+
+.subscription-plan.selected {
+    border-color: var(--neon-magenta);
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+}
+
+.subscription-plan.recommended {
+    border-color: var(--neon-magenta);
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.4);
+}
+
+.recommended-badge {
+    position: absolute;
+    top: 10px;
+    right: -30px;
+    background: var(--neon-magenta);
+    color: var(--dark-bg);
+    font-size: 0.8rem;
+    padding: 0.3rem 2rem;
+    transform: rotate(45deg);
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.7);
+}
+
+.plan-name {
+    font-size: 1.4rem;
+    color: var(--neon-cyan);
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.subscription-plan.recommended .plan-name,
+.subscription-plan.selected .plan-name {
+    color: var(--neon-magenta);
+}
+
+.plan-price {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.price-amount {
+    font-size: 2rem;
+    color: var(--neon-green);
+    font-family: 'Audiowide', cursive;
+}
+
+.price-cycle {
+    font-size: 1rem;
+    color: var(--light-text);
+}
+
+.plan-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.plan-features li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+    font-size: 0.9rem;
+}
+
+.plan-features li:before {
+    content: '✓';
+    color: var(--neon-green);
+    margin-right: 0.5rem;
+}
+
+.select-plan-button {
+    width: 100%;
+}
+
+/* Subscription Add-ons */
+.subscription-addons {
+    margin-bottom: 2rem;
+}
+
+.subscription-addons h3 {
+    margin-bottom: 1rem;
+    color: var(--neon-cyan);
+}
+
+.addon-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.subscription-addon {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--neon-cyan);
+    border-radius: 8px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.subscription-addon:hover {
+    background: rgba(0, 255, 255, 0.05);
+}
+
+.addon-checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.addon-checkbox {
+    margin-right: 0.5rem;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--neon-cyan);
+    border-radius: 4px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.addon-checkbox:checked {
+    background: var(--neon-cyan);
+    box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.addon-checkbox:checked:after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--dark-bg);
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.addon-name {
+    font-size: 1rem;
+    color: var(--neon-cyan);
+    cursor: pointer;
+}
+
+.addon-description {
+    font-size: 0.9rem;
+    color: var(--light-text);
+    opacity: 0.8;
+}
+
+/* Subscription Summary */
+.subscription-summary {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--neon-green);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.subscription-summary h3 {
+    margin-bottom: 1rem;
+    color: var(--neon-green);
+}
+
+.summary-items {
+    margin-bottom: 1rem;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0, 255, 0, 0.1);
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    color: var(--neon-green);
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--neon-green);
+    font-weight: bold;
+}
+
+/* Subscription Confirmation Modal */
+.subscription-confirmation-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1100;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.subscription-confirmation-content {
+    background: var(--dark-accent);
+    border: 2px solid var(--neon-magenta);
+    box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+    border-radius: 10px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    animation: scaleIn 0.5s ease;
+}
+
+.subscription-confirmation-content h2 {
+    color: var(--neon-magenta);
+    text-shadow: 0 0 10px var(--neon-magenta);
+    margin-bottom: 1rem;
+}
+
+.confirmation-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--neon-magenta);
+    color: var(--dark-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin: 1rem auto 2rem;
+    box-shadow: 0 0 20px var(--neon-magenta);
+}
+
+.subscription-confirmation-content p {
+    margin-bottom: 1rem;
+}
+
+.subscription-confirmation-content ul {
+    text-align: left;
+    margin: 1rem 0 1.5rem 1.5rem;
+}
+
+.subscription-confirmation-content ul li {
+    margin-bottom: 0.5rem;
+}
+
+.subscription-confirmation-content button {
+    margin-top: 1.5rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .subscription-plans {
+        grid-template-columns: 1fr;
+    }
+    
+    .addon-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .subscription-modal-content {
+        width: 95%;
+        max-height: 95vh;
+    }
+} 

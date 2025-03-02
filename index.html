@@ -9,6 +9,8 @@
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Audiowide&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/nexus.css">
+    <link rel="stylesheet" href="css/subscription.css">
 </head>
 <body>
     <div id="sidebar">
@@ -25,6 +27,19 @@
         <div class="cart-icon" onclick="viewCart()">
             <span class="cart-count">0</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+        </div>
+        <div class="subscription-button" id="subscription-button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 6H4V9H20V6Z" fill="currentColor"/>
+                <path d="M4 11H20V14H4V11Z" fill="currentColor"/>
+                <path d="M4 16H12V19H4V16Z" fill="currentColor"/>
+                <path d="M14 16H20V19H14V16Z" fill="currentColor"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M2 4C2 2.89543 2.89543 2 4 2H20C21.1046 2 22 2.89543 22 4V20C22 21.1046 21.1046 22 20 22H4C2.89543 22 2 21.1046 2 20V4ZM4 4H20V20H4V4Z" fill="currentColor"/>
+            </svg>
+            <span class="subscription-label" id="subscription-status">Subscribe</span>
+        </div>
+        <div class="nexus-button" id="nexus-button">
+            <button class="neon-button cyan" id="activate-nexus" onclick="activateNexus()">Activate Nexus</button>
         </div>
     </div>
 
@@ -67,6 +82,7 @@
                     <li>Point your camera at the marker</li>
                     <li>Select category and tier above</li>
                     <li>Click "Update Equipment" to visualize</li>
+                    <li>For advanced features, click "Activate Nexus"</li>
                 </ol>
             </div>
 
@@ -289,13 +305,120 @@
         </div>
     </div>
 
-    <audio id="click-sound" src="assets/sounds/click.mp3" preload="auto"></audio>
-    <audio id="success-sound" src="assets/sounds/success.mp3" preload="auto"></audio>
+    <!-- Chatbot Interface -->
+    <div class="chatbot" id="chatbot">
+        <div class="chatbot-header">
+            <h3>Tech Assistant</h3>
+            <button class="chatbot-close" onclick="toggleChatbot()">×</button>
+        </div>
+        <div class="chatbot-messages" id="chatbot-messages">
+            <div class="message bot-message">
+                Hi there! I'm your tech assistant. I can help with tech deals, product information, and networking troubleshooting. What can I help you with today?
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbot-input-text" placeholder="Ask me anything about tech..." onkeypress="handleChatInputKeypress(event)">
+            <button onclick="sendChatMessage()">Send</button>
+            <button onclick="startVoiceInput()" class="voice-button">🎙️</button>
+        </div>
+    </div>
+    <button class="chatbot-toggle" id="chatbot-toggle" onclick="toggleChatbot()">💬</button>
 
+    <!-- Tech Assistant Chatbot -->
+    <div class="chatbot-container" id="chatbot-container">
+        <div class="chatbot-header">
+            <h3>Tech Assistant</h3>
+            <button id="close-chatbot">×</button>
+        </div>
+        <div class="chatbot-messages" id="chatbot-messages">
+            <div class="bot-message">
+                <p>Hello! I'm your Tech Assistant. I can help you with:</p>
+                <ul>
+                    <li>Finding the latest tech deals</li>
+                    <li>Troubleshooting networking issues</li>
+                    <li>Answering tech questions</li>
+                </ul>
+                <p>How can I assist you today?</p>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbot-input-field" placeholder="Ask me about tech...">
+            <button id="chatbot-send">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
+            <button id="chatbot-voice">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+            </button>
+        </div>
+    </div>
+    <button id="toggle-chatbot" class="toggle-chatbot">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+    </button>
+
+    <!-- Subscription Modal -->
+    <div class="subscription-modal" id="subscription-modal" style="display: none;">
+        <div class="subscription-modal-content">
+            <div class="subscription-modal-header">
+                <h2>Upgrade Your Experience</h2>
+                <button class="subscription-close-button" id="close-subscription-modal">×</button>
+            </div>
+            <div class="subscription-modal-body">
+                <div class="subscription-plans" id="subscription-plans">
+                    <!-- Plans will be dynamically generated here -->
+                </div>
+                
+                <div class="subscription-addons">
+                    <h3>Enhance Your Subscription</h3>
+                    <div class="addon-list" id="addon-list">
+                        <!-- Add-ons will be dynamically generated here -->
+                    </div>
+                </div>
+                
+                <div class="subscription-summary">
+                    <h3>Order Summary</h3>
+                    <div class="summary-items" id="summary-items">
+                        <!-- Summary items will be dynamically generated here -->
+                    </div>
+                    <div class="summary-total">
+                        <span>Total:</span>
+                        <span id="summary-total-amount">$0.00/month</span>
+                    </div>
+                </div>
+            </div>
+            <div class="subscription-modal-footer">
+                <button class="neon-button" id="cancel-subscription">Cancel</button>
+                <button class="neon-button green" id="confirm-subscription">Subscribe Now</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Subscription Confirmation Modal -->
+    <div class="subscription-confirmation-modal" id="subscription-confirmation-modal" style="display: none;">
+        <div class="subscription-confirmation-content">
+            <div class="confirmation-icon">✓</div>
+            <h2>Subscription Activated!</h2>
+            <p>Thank you for subscribing to <span id="confirmed-plan-name">Pro Plan</span>!</p>
+            <p>Your subscription is now active and you have access to:</p>
+            <ul id="confirmed-features">
+                <!-- Features will be dynamically generated here -->
+            </ul>
+            <p>Your first billing date will be <span id="billing-date">June 15, 2023</span>.</p>
+            <button class="neon-button magenta" id="close-confirmation">Got it!</button>
+        </div>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="click-sound" src="assets/sounds/click.mp3"></audio>
+    <audio id="success-sound" src="assets/sounds/success.mp3"></audio>
+
+    <!-- Scripts -->
     <script src="js/data.js"></script>
     <script src="js/ar.js"></script>
     <script src="js/shop.js"></script>
     <script src="js/ui.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/nexus.js"></script>
+    <script src="js/subscription.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html> 
